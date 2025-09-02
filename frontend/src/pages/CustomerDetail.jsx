@@ -7,7 +7,7 @@ export default function CustomerDetail() {
   const [customer, setCustomer] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/customers/${id}`)
+    fetch(`https://customer-crud-app1.onrender.com/api/customers/${id}`)
       .then((res) => res.json())
       .then((data) => setCustomer(data))
       .catch((err) => console.error("Error fetching customer:", err));

@@ -8,7 +8,7 @@ function AddressList({ customerId }) {
   const [editingText, setEditingText] = useState("");
 
   const loadAddresses = async () => {
-    const res = await axios.get(`http://localhost:5000/api/addresses/${customerId}`);
+    const res = await axios.get(`https://customer-crud-app1.onrender.com/api/addresses/${customerId}`);
     setAddresses(res.data);
   };
 
@@ -18,7 +18,7 @@ function AddressList({ customerId }) {
 
   const addAddress = async () => {
     if (!newAddress) return;
-    await axios.post("http://localhost:5000/api/addresses", {
+    await axios.post("https://customer-crud-app1.onrender.com/api/addresses", {
       customerId,
       address: newAddress,
     });
@@ -30,13 +30,13 @@ function AddressList({ customerId }) {
   const cancelEdit = () => { setEditingId(null); setEditingText(""); };
   const saveEdit = async () => {
     if (!editingId) return;
-    await axios.put(`http://localhost:5000/api/addresses/${editingId}`, { address: editingText });
+    await axios.put(`https://customer-crud-app1.onrender.com/api/addresses/${editingId}`, { address: editingText });
     cancelEdit();
     loadAddresses();
   };
   const removeAddress = async (id) => {
     if (!window.confirm("Delete this address?")) return;
-    await axios.delete(`http://localhost:5000/api/addresses/${id}`);
+    await axios.delete(`https://customer-crud-app1.onrender.com/api/addresses/${id}`);
     loadAddresses();
   };
 

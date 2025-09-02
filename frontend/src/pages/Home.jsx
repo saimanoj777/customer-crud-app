@@ -23,7 +23,7 @@ export default function Home() {
     if (filters.state) params.append("state", filters.state);
     if (filters.pincode) params.append("pincode", filters.pincode);
 
-    fetch(`http://localhost:5000/api/customers?${params.toString()}`)
+    fetch(`https://customer-crud-app1.onrender.com/api/customers?${params.toString()}`)
       .then(res => res.json())
       .then(resp => {
         const list = Array.isArray(resp) ? resp : resp.data;
@@ -41,7 +41,7 @@ export default function Home() {
   }, [page, limit, sortBy, sortDir]);
 
   const confirmDelete = () => {
-    fetch(`http://localhost:5000/api/customers/${deleteId}`, { method: "DELETE" })
+    fetch(`https://customer-crud-app1.onrender.com/api/customers/${deleteId}`, { method: "DELETE" })
       .then(res => {
         if (res.ok) {
           setCustomers(customers.filter(c => c.id !== deleteId));

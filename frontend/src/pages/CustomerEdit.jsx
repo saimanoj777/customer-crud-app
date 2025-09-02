@@ -8,7 +8,7 @@ export default function CustomerEdit() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/customers/${id}`)
+    fetch(`https://customer-crud-app1.onrender.com/api/customers/${id}`)
       .then(res => res.json())
       .then(data => { setForm({
         firstName: data.firstName || "",
@@ -27,7 +27,7 @@ export default function CustomerEdit() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!form.firstName || !form.lastName || !form.phone) { alert("First, Last and Phone are required"); return; }
-    fetch(`http://localhost:5000/api/customers/${id}`, {
+    fetch(`https://customer-crud-app1.onrender.com/api/customers/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form)

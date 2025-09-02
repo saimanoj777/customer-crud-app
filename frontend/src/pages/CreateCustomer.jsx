@@ -26,7 +26,7 @@ export default function CreateCustomer() {
       return;
     }
 
-    fetch("http://localhost:5000/api/customers", {
+    fetch("https://customer-crud-app1.onrender.com/api/customers", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),

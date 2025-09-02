@@ -18,7 +18,7 @@ function CustomerForm({ onSuccess }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/customers", form);
+      await axios.post("https://customer-crud-app1.onrender.com/api/customers", form);
       alert("✅ Customer created successfully!");
       setForm({ firstName: "", lastName: "", phone: "", city: "", state: "", pincode: "" });
       if (onSuccess) onSuccess();

@@ -8,7 +8,7 @@ function CustomerProfile() {
   const [customer, setCustomer] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/customers/${id}`).then((res) => {
+    axios.get(`https://customer-crud-app1.onrender.com/api/customers/${id}`).then((res) => {
       setCustomer(res.data);
     });
   }, [id]);
