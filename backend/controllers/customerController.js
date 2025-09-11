@@ -2,15 +2,15 @@ const db = require("../models/customerModel");
 
 // Create new customer
 exports.createCustomer = (req, res) => {
-  const { firstName, lastName, phone, address, city, state, pincode } = req.body;
+  const { firstName, lastName, fatherName, phone, address, city, state, pincode } = req.body;
   if (!firstName || !lastName || !phone) {
     return res.status(400).json({ error: "Required fields missing" });
   }
 
   db.run(
-    `INSERT INTO customers (firstName, lastName, phone, address, city, state, pincode)
-     VALUES (?, ?, ?, ?, ?, ?, ?)`,
-    [firstName, lastName, phone, address || "", city || "", state || "", pincode || ""],
+    `INSERT INTO customers (firstName, lastName, fatherName, phone, address, city, state, pincode)
+     VALUES (?, ?,?, ?, ?, ?, ?, ?)`,
+    [firstName, lastName, fatherName, phone, address || "", city || "", state || "", pincode || ""],
     function (err) {
       if (err) return res.status(500).json({ error: err.message });
       res.json({ id: this.lastID, message: "Customer created successfully" });
@@ -33,10 +33,10 @@ exports.getCustomerById = (req, res) => {
 // Update customer
 exports.updateCustomer = (req, res) => {
   const { id } = req.params;
-  const { firstName, lastName, phone, address, city, state, pincode } = req.body;
+  const { firstName, lastName, fatherName, phone, address, city, state, pincode } = req.body;
   db.run(
-    `UPDATE customers SET firstName=?, lastName=?, phone=?, address=?, city=?, state=?, pincode=? WHERE id=?`,
-    [firstName, lastName, phone, address || "", city || "", state || "", pincode || "", id],
+    `UPDATE customers SET firstName=?, lastName=?, fatherName=?, phone=?, address=?, city=?, state=?, pincode=? WHERE id=?`,
+    [firstName, lastName, fatherName, phone, address || "", city || "", state || "", pincode || "", id],
     function (err) {
       if (err) return res.status(500).json({ error: err.message });
       res.json({ message: "Customer updated successfully" });

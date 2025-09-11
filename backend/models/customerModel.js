@@ -6,6 +6,7 @@ db.run(`
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     firstName TEXT,
     lastName TEXT,
+    fatherName TEXT,
     phone TEXT,
     address TEXT,
     city TEXT,

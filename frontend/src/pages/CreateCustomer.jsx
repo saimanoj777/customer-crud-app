@@ -68,6 +68,17 @@ export default function CreateCustomer() {
               />
             </div>
             <div className="col-md-6">
+              <label className="form-label">Father Name</label>
+              <input
+                type="text"
+                className="form-control"
+                name="fatherName"
+                value={form.fatherName}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="col-md-6">
               <label className="form-label">Phone</label>
               <input
                 type="text"
